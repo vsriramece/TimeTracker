@@ -36,20 +36,21 @@ namespace Reviso.TimeTracker.Infrastructure.Repository
         public IEnumerable<TimeEntry> GetTimeSheetEntriesForUser(int userId, DateTime? startDate, DateTime? endDate)
         {
             // To do- introduce pagination to avoid memory overflow
+            var result =AggregateStates.Where(o => o.UserId == userId).ToList();
             // Optional Filters
             if (startDate.HasValue && endDate.HasValue)
             {
-                return AggregateStates.Where(o => o.UserId == userId && DbFunctions.TruncateTime(o.EntryDate) >= startDate.Value.Date && DbFunctions.TruncateTime(o.EntryDate) <= endDate.Value.Date);
+                return result.Where(o => o.EntryDate >= startDate.Value.Date && o.EntryDate <= endDate.Value.Date);
             }
             else if(startDate.HasValue)
             {
-                return AggregateStates.Where(o => o.UserId == userId && DbFunctions.TruncateTime(o.EntryDate) >= startDate.Value.Date);
+                return result.Where(o => o.EntryDate >= startDate.Value.Date);
             }
             else if (endDate.HasValue)
             {
-                return AggregateStates.Where(o => o.UserId == userId && DbFunctions.TruncateTime(o.EntryDate) <= endDate.Value.Date);
+                return result.Where(o => o.EntryDate <= endDate.Value.Date);
             }
-            return AggregateStates.Where(o => o.UserId == userId);
+            return result;
         }
     }
 }

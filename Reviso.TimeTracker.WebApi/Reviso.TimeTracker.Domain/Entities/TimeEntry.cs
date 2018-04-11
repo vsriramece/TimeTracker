@@ -24,11 +24,14 @@ namespace Reviso.TimeTracker.Domain.Entities
         public void Initialize(int projectId, string projectName, decimal hours)
         {
             // Domain validations
-            if(hours < 0 || hours > 24)
+            if(hours <= 0 || hours > 24)
             {
                 throw new Exception("Please enter valid hours. Allowed value is between 0 and 24.");
             }
-
+            if(EntryDate.Date > DateTime.UtcNow.Date) //User Time zone consideration?
+            {
+                throw new Exception("Entry date cannot be future date. UTC time zone is followed!");
+            }
             //To do if required- project id can also be validated Eg: if the user is authorized to record against this project id
 
             ProjectId = projectId;
