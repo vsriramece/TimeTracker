@@ -17,7 +17,9 @@ namespace Reviso.TimeTracker.Infrastructure.Repository
 
         public TimeEntry Create(int userId, DateTime entryDate)
         {
-            if(AggregateStates.FirstOrDefault(o => o.UserId == userId && o.EntryDate == entryDate.Date) != null)
+            // For now, keeping it simple where one user can create only one timeentry for a given date
+            // This can also be designed to suit multiple entries where the user can add multiple entries in different project entries
+            if (AggregateStates.FirstOrDefault(o => o.UserId == userId && o.EntryDate == entryDate.Date) != null)
             {
                 throw new Exception($"TimeEntry already exists for userId {userId} for date {entryDate}");
             }
@@ -51,6 +53,16 @@ namespace Reviso.TimeTracker.Infrastructure.Repository
                 return result.Where(o => o.EntryDate <= endDate.Value.Date);
             }
             return result;
+        }
+
+        public TimeEntry GetById(Guid id)
+        {
+            return AggregateStates.FirstOrDefault(o => o.Id == id);
+        }
+
+        public void Delete(TimeEntry timeSheetEntry)
+        {
+            DbContext.TimeEntries.Remove(timeSheetEntry);
         }
     }
 }

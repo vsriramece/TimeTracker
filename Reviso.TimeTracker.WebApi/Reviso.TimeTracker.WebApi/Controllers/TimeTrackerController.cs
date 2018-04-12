@@ -40,12 +40,45 @@ namespace Reviso.TimeTracker.WebApi.Controllers
                 return InternalServerError(ex);
             }
         }
+
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(UpdateTimeEntryResponse))]
+        [HttpPut, Route("timeentries/{id}")]
+        public async Task<IHttpActionResult> UpdateTimeSheetEntry([FromUri]Guid id,[FromBody]UpdateTimeEntry input)
+        {
+            try
+            {
+                return Ok(await CommandService.UpdateTimeSheetEntry(id,input));
+            }
+            catch (Exception ex)
+            {
+                // To do -Logging
+                // Can be fine tuned to throw a general exception instead of sending the server exception
+                return InternalServerError(ex);
+            }
+        }
+
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(UpdateTimeEntryResponse))]
+        [HttpDelete, Route("timeentries/{id}")]
+        public async Task<IHttpActionResult> DeleteTimeSheetEntry([FromUri]Guid id)
+        {
+            try
+            {
+                return Ok(await CommandService.DeleteTimeSheetEntry(id));
+            }
+            catch (Exception ex)
+            {
+                // To do -Logging
+                // Can be fine tuned to throw a general exception instead of sending the server exception
+                return InternalServerError(ex);
+            }
+        }
+
         #endregion
 
         #region Queries
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<TimeEntryData>))]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<TimeEntryData>),Description = "This method needs pagination!")]
         [HttpGet, Route("timeentries")]
-        [Obsolete("This method needs pagination. Use")]
+        [Obsolete("This method needs pagination!")]
         public async Task<IHttpActionResult> GetTimeSheetEntries()
         {
             try

@@ -11,5 +11,7 @@ namespace Reviso.TimeTracker.Infrastructure.Services.Interfaces
     public interface ITimeTrackerCommandService
     {
         Task<CreateTimeEntryResponse> CreateTimeSheetEntry(CreateTimeEntry input);
+        Task<UpdateTimeEntryResponse> UpdateTimeSheetEntry(Guid id, UpdateTimeEntry input);
+        Task<DeleteTimeEntryResponse> DeleteTimeSheetEntry(Guid id);
     }
 }

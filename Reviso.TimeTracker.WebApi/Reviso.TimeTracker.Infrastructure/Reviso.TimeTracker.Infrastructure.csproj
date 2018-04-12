@@ -50,7 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Commands\CreateTimeEntry.cs" />
+    <Compile Include="DTO\Commands\UpdateTimeEntry.cs" />
     <Compile Include="DTO\Response\CreateTimeEntryResponse.cs" />
+    <Compile Include="DTO\Response\DeleteTimeEntryResponse.cs" />
+    <Compile Include="DTO\Response\UpdateTimeEntryResponse.cs" />
     <Compile Include="DTO\TimeEntryData.cs" />
     <Compile Include="Migrations\201804111816263_InitialSetup.cs" />
     <Compile Include="Migrations\201804111816263_InitialSetup.Designer.cs">

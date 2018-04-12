@@ -9,5 +9,7 @@ namespace Reviso.TimeTracker.Infrastructure.Repository
         TimeEntry Create(int userId, DateTime entryDate);
         IEnumerable<TimeEntry> GetAllTimeEntries();
         IEnumerable<TimeEntry> GetTimeSheetEntriesForUser(int userId, DateTime? startDate, DateTime? endDate);
+        TimeEntry GetById(Guid id);
+        void Delete(TimeEntry timeSheetEntry);
     }
 }
