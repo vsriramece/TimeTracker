@@ -29,7 +29,7 @@ namespace Reviso.TimeTracker.Domain.Entities
             {
                 throw new Exception("Entry date cannot be future date. UTC time zone is followed!");
             }
-            ValidateHours(hours);
+            Validate(hours,projectName);
             //To do if required- project id can also be validated Eg: if the user is authorized to record against this project id
 
             ProjectId = projectId;
@@ -39,7 +39,7 @@ namespace Reviso.TimeTracker.Domain.Entities
 
         public void Update(int projectId, string projectName, decimal hours)
         {
-            ValidateHours(hours);
+            Validate(hours,projectName);
             ProjectId = projectId;
             ProjectName = projectName;
             Hours = hours;
@@ -52,6 +52,20 @@ namespace Reviso.TimeTracker.Domain.Entities
         }
 
         #endregion
+
+        private void Validate(decimal hours, string projectName)
+        {
+            ValidateProjectName(projectName);
+            ValidateHours(hours);
+        }
+
+        private void ValidateProjectName(string projectName)
+        {
+            if(string.IsNullOrEmpty(projectName?.Trim()))
+            {
+                throw new Exception("Please enter a valid project name.");
+            }
+        }
 
         private void ValidateHours(decimal hours)
         {
