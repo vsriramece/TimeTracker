@@ -2,7 +2,6 @@
 using System.Linq;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 
 namespace Reviso.TimeTracker.Infrastructure.Repository
 {
