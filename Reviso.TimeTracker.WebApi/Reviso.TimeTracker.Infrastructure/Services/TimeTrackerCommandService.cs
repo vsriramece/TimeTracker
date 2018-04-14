@@ -45,7 +45,7 @@ namespace Reviso.TimeTracker.Infrastructure.Services
             var timeSheetEntry = Repository.GetById(id);
             if (timeSheetEntry == null)
             {
-                // This can be a custom exception so that NotFound (404) could be thrown
+                // This can be a custom exception so that NotFound (404) could be thrown from the controller
                 throw new Exception($"User:{id} not found");
             };
             timeSheetEntry.Update(input.ProjectId, input.ProjectName, input.Hours);
