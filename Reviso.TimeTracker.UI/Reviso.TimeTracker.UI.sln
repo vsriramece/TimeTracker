@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reviso.TimeTracker.UI", "Reviso.TimeTracker.UI\Reviso.TimeTracker.UI.csproj", "{DA8510CA-47D8-44C5-B43A-88F6CB57B4D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reviso.TimeTracker.UI.Tests", "Reviso.TimeTracker.UI.Tests\Reviso.TimeTracker.UI.Tests.csproj", "{D4559BB5-61A3-4D52-A6EC-A638AE836276}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA8510CA-47D8-44C5-B43A-88F6CB57B4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8510CA-47D8-44C5-B43A-88F6CB57B4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8510CA-47D8-44C5-B43A-88F6CB57B4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8510CA-47D8-44C5-B43A-88F6CB57B4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4559BB5-61A3-4D52-A6EC-A638AE836276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4559BB5-61A3-4D52-A6EC-A638AE836276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4559BB5-61A3-4D52-A6EC-A638AE836276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4559BB5-61A3-4D52-A6EC-A638AE836276}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

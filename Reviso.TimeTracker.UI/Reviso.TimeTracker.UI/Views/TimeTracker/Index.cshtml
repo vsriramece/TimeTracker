@@ -1,0 +1,42 @@
+﻿@model Reviso.TimeTracker.UI.Models.TimeEntryIndexViewModel
+@using Reviso.TimeTracker.UI.Content
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink(Resources.TimeTracker_Index_CreateNew, "TimeEntry")
+    <div>Recent Entries</div>
+    @{var headerRow = Model.TimeEntries.FirstOrDefault(); }
+    <table class="table">
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => headerRow.EntryDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => headerRow.ProjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => headerRow.Hours)
+                </th>
+            </tr>
+        @foreach (var item in Model.TimeEntries)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hours)
+                </td>
+                <td>
+                    @Html.ActionLink(Resources.TimeTracker_Index_Edit, "TimeEntry", new { id = item.Id}) |
+                    @Html.ActionLink(Resources.TimeTracker_Index_Delete, "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+</p>
