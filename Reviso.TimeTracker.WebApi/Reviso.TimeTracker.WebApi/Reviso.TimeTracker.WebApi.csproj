@@ -152,6 +152,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\revisotimetrackerapi - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
