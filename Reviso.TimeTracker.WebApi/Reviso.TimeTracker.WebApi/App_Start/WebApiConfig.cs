@@ -10,7 +10,7 @@ namespace Reviso.TimeTracker.WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
             // Web API routes
             config.MapHttpAttributeRoutes();
 

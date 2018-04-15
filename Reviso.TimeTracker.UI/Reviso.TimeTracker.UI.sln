@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reviso.TimeTracker.UI", "Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reviso.TimeTracker.UI.Tests", "Reviso.TimeTracker.UI.Tests\Reviso.TimeTracker.UI.Tests.csproj", "{D4559BB5-61A3-4D52-A6EC-A638AE836276}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reviso.Common", "..\Reviso.Common\Reviso.Common.csproj", "{A82331B4-53E1-4B4C-8003-F6602DE44628}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D4559BB5-61A3-4D52-A6EC-A638AE836276}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4559BB5-61A3-4D52-A6EC-A638AE836276}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4559BB5-61A3-4D52-A6EC-A638AE836276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A82331B4-53E1-4B4C-8003-F6602DE44628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A82331B4-53E1-4B4C-8003-F6602DE44628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A82331B4-53E1-4B4C-8003-F6602DE44628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A82331B4-53E1-4B4C-8003-F6602DE44628}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -61,6 +61,15 @@ namespace Reviso.TimeTracker.UI.Content {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter a value between 0.1 and 24!.
+        /// </summary>
+        public static string Error_Index_Hours_RangeError {
+            get {
+                return ResourceManager.GetString("Error_Index_Hours_RangeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create New Entry.
         /// </summary>
         public static string TimeTracker_Index_CreateNew {
@@ -93,6 +102,24 @@ namespace Reviso.TimeTracker.UI.Content {
         public static string TimeTracker_Index_EntryDate {
             get {
                 return ResourceManager.GetString("TimeTracker_Index_EntryDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hours.
+        /// </summary>
+        public static string TimeTracker_Index_Hours {
+            get {
+                return ResourceManager.GetString("TimeTracker_Index_Hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project name.
+        /// </summary>
+        public static string TimeTracker_Index_ProjectName {
+            get {
+                return ResourceManager.GetString("TimeTracker_Index_ProjectName", resourceCulture);
             }
         }
     }
