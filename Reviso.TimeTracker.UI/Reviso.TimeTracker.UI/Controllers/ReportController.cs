@@ -23,7 +23,7 @@ namespace Reviso.TimeTracker.UI.Controllers
             return View(new ReportFilter());
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<ActionResult> Summary(ReportFilter filter)
         {
             ReportSummary summary = new ReportSummary();
