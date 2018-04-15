@@ -22,6 +22,17 @@ namespace Reviso.TimeTracker.UI.Infrastructure.ProxyServices
             return timeEntries.Select(o => MapTimeEntryDtoToModel(o)).OrderByDescending(o=>o.EntryDate);
        }
 
+        public async Task<IEnumerable<TimeEntryModel>> GetTimeEntriesForRange(int userId, DateTime startDate, DateTime endDate)
+        {
+            var timeEntries = await timeTrackerApiClient.GetAsync<IEnumerable<TimeEntryData>>($"/timeentries/users/{userId}?startDate={startDate.ToString("yyyy-MM-dd")}&endDate={endDate.ToString("yyyy-MM-dd")}");
+            return timeEntries.Select(o => MapTimeEntryDtoToModel(o)).OrderByDescending(o => o.EntryDate);
+        }
+        public async Task<TimeEntryModel> GetTimeEntry(Guid id)
+        {
+            var timeEntry= await timeTrackerApiClient.GetAsync<TimeEntryData>($"/timeentries/{id}");
+            return MapTimeEntryDtoToModel(timeEntry);
+        }
+
         public async Task<Guid> CreateTimeEntry(int userId, TimeEntryModel data)
         {
             CreateTimeEntry request = new Dto.CreateTimeEntry()
@@ -39,9 +50,13 @@ namespace Reviso.TimeTracker.UI.Infrastructure.ProxyServices
         public async Task<bool> UpdateTimeEntry(TimeEntryModel data)
         {
             UpdateTimeEntry request = new UpdateTimeEntry()
-            { Hours = data.Hours, ProjectId = data.ProjectId, ProjectName = data.ProjectName };
+            {
+                Hours = data.Hours,
+                ProjectId = data.ProjectId,
+                ProjectName = data.ProjectName
+            };
 
-            var response = await timeTrackerApiClient.PutAsync<UpdateTimeEntry, UpdateTimeEntryResponse>($"/timeentries", request);
+            var response = await timeTrackerApiClient.PutAsync<UpdateTimeEntry, UpdateTimeEntryResponse>($"/timeentries/{data.Id}", request);
             return response.Success;
         }
 

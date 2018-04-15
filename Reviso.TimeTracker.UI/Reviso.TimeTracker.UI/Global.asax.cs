@@ -17,5 +17,11 @@ namespace Reviso.TimeTracker.UI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_Error()
+        {
+            var ex = Server.GetLastError();
+            //log the error and redirect to custom error page!
+        }
     }
 }

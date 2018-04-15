@@ -209,6 +209,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\TimeTrackerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -221,8 +222,11 @@
     <Compile Include="Infrastructure\Dto\UpdateTimeEntryResponse.cs" />
     <Compile Include="Infrastructure\ProxyServices\ITimeTrackerDomainService.cs" />
     <Compile Include="Infrastructure\ProxyServices\TimeTrackerDomainService.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ProjectSummary.cs" />
+    <Compile Include="Models\ReportFilter.cs" />
+    <Compile Include="Models\ReportSummary.cs" />
     <Compile Include="Models\TimeEntryIndexViewModel.cs" />
+    <Compile Include="Models\TimeEntryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -264,7 +268,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\TimeTracker\Index.cshtml" />
-    <Content Include="Views\TimeTracker\TimeEntry.cshtml" />
+    <Content Include="Views\TimeTracker\Create.cshtml" />
+    <Content Include="Views\TimeTracker\Delete.cshtml" />
+    <Content Include="Views\TimeTracker\Edit.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Report\Summary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

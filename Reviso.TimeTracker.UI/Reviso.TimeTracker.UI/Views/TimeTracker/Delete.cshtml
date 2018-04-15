@@ -1,0 +1,13 @@
+﻿@model Reviso.TimeTracker.UI.Models.TimeEntryModel
+@{
+    ViewBag.Title = "Time Entry Delete Confirmation";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h3>Are you sure you want to delete this?</h3>
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to Home", "Index")
+    </div>
+}

@@ -26,6 +26,12 @@ namespace Reviso.TimeTracker.Infrastructure.Services
             return Task.FromResult(result);
         }
 
+        public Task<TimeEntryData> GetTimeSheetEntry(Guid id)
+        {
+            var timeEntry = Repository.GetById(id);
+            return timeEntry == null ? null:Task.FromResult(MapTimeEntryDomainFields(timeEntry));
+        }
+
         public Task<List<TimeEntryData>> GetTimeSheetEntriesForUser(int userId, DateTime? startDate, DateTime? endDate)
         {
             IEnumerable<TimeEntry> timeEntries = Repository.GetTimeSheetEntriesForUser(userId, startDate, endDate);

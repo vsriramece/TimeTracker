@@ -94,6 +94,27 @@ namespace Reviso.TimeTracker.WebApi.Controllers
             }
         }
 
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(TimeEntryData))]
+        [HttpGet, Route("timeentries/{id}")]
+        public async Task<IHttpActionResult> GetTimeSheetEntry(Guid id)
+        {
+            try
+            {
+                var timeSheetEntry =await QueryService.GetTimeSheetEntry(id);
+                if(timeSheetEntry == null)
+                {
+                    return NotFound();
+                }
+                return Ok(timeSheetEntry);
+            }
+            catch (Exception ex)
+            {
+                // To do -Logging
+                // Can be fine tuned to throw a general exception instead of sending the server exception
+                return InternalServerError(ex);
+            }
+        }
+
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<TimeEntryData>))]
         [HttpGet, Route("timeentries/users/{userId}")]
         public async Task<IHttpActionResult> GetTimeSheetEntriesForUser([FromUri]int userId, [FromUri]DateTime? startDate=null, [FromUri]DateTime? endDate=null)

@@ -1,0 +1,41 @@
+﻿@model Reviso.TimeTracker.UI.Models.ReportSummary
+@{
+    ViewBag.Title = "Report Summary";
+}
+@if (Model.ProjectSummary == null || Model.ProjectSummary.Count() == 0)
+{
+    <div>No records found. Please select a valid date range!</div>
+}
+else
+{
+    <h2>Summary</h2>
+    <table class="table">
+        @{var headerRow = Model.ProjectSummary.FirstOrDefault(); }
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => headerRow.ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => headerRow.TotalHours)
+            </th>
+        </tr>
+        @foreach (var item in Model.ProjectSummary)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalHours)
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div><b>Total Hours: @Model.TotalHours</b></div>
+
+    <div>To do - Generate Invoice based on the summary!</div>
+}
+<div>
+    @Html.ActionLink("Back to Home", "Index")
+</div>

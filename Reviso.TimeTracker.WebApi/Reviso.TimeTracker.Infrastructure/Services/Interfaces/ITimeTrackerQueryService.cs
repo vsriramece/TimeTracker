@@ -11,5 +11,6 @@ namespace Reviso.TimeTracker.Infrastructure.Services.Interfaces
     {
         Task<List<TimeEntryData>> GetTimeSheetEntries();
         Task<List<TimeEntryData>> GetTimeSheetEntriesForUser(int userId, DateTime? startDate, DateTime? endDate);
+        Task<TimeEntryData> GetTimeSheetEntry(Guid id);
     }
 }
