@@ -5,9 +5,11 @@
 }
 <p>
     <div>
-        @Html.ActionLink(Resources.TimeTracker_Index_CreateNew, "Create")
+        <h3>@Html.ActionLink(Resources.TimeTracker_Index_CreateNew, "Create")</h3>
     </div>
-    <div>Recent Entries:</div>
+    <br/>
+    <div><b>Recent Entries</b></div>
+    <br/>
     @{var headerRow = Model.TimeEntries.FirstOrDefault(); }
     <table class="table">
             <tr>
