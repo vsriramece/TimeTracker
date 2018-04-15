@@ -20,13 +20,14 @@ namespace Reviso.TimeTracker.UI.Controllers
         {
             TimeEntryIndexViewModel model = new TimeEntryIndexViewModel();
             model.TimeEntries = await timeTrackerDomainservice.GetRecentTimeEntries(GetCurrentLoggedInUser());
-            return View(model);
+            return View(nameof(Index),model);
         }
 
         [HttpGet]
         public async Task<ActionResult> Create()
         {
-            return View(new TimeEntryModel());
+            // To do - The project names can be centralized and could be shown in a dropdown to the user
+            return View(nameof(Create),new TimeEntryModel());
         }
 
         [HttpPost]
@@ -35,7 +36,8 @@ namespace Reviso.TimeTracker.UI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(timeEntry);
+                //To do - Add the model state to TempData and then redirect!
+                return View(nameof(Create),timeEntry);
 
             }
             await timeTrackerDomainservice.CreateTimeEntry(GetCurrentLoggedInUser(), timeEntry);
