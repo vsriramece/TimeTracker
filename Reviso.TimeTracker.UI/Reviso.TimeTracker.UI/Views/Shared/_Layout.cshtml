@@ -36,7 +36,12 @@
                     <li>@Html.ActionLink("Home", "Index", "TimeTracker")</li>
                     <li>@Html.ActionLink("Report", "Index", "Report")</li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @*This will come from login!For now hardcoding user*@
+                    <li>@Html.ActionLink("Hello Sriram! UserId: 123", "Index", "TimeTracker")</li>
+                </ul>
             </div>
+
         </div>
     </div>
     <div class="container body-content">
